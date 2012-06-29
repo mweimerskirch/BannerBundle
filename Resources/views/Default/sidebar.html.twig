@@ -1,0 +1,5 @@
+<div class="blockBanner">
+    {% if entity %}
+    <a href="{{ entity.link }}"><img src="{{ entity.webPath | apply_filter('banner_sidebar') }}" alt="banner" /></a>
+    {% endif %}
+</div>

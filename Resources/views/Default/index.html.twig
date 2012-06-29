@@ -1,0 +1,5 @@
+<div class="banner">
+    {% if entity %}
+    <a href="{{ entity.link }}"><img src="{{ entity.webPath | apply_filter('banner_main_horizontal') }}" alt="banner" /></a>
+    {% endif %}
+</div>
