@@ -46,13 +46,6 @@ class Banner
     private $link;
 
     /**
-     * @var string $lang
-     *
-     * @ORM\Column(name="lang", type="string", length=255, nullable=true)
-     */
-    private $lang;
-
-    /**
      * @Assert\File(maxSize="6000000")
      */
     private $file;
@@ -210,23 +203,4 @@ class Banner
         return $this->link;
     }
 
-    /**
-     * Set lang
-     *
-     * @param string $lang
-     */
-    public function setLang($lang)
-    {
-        $this->lang = $lang;
-    }
-
-    /**
-     * Get lang
-     *
-     * @return string
-     */
-    public function getLang()
-    {
-        return $this->lang;
-    }
 }
