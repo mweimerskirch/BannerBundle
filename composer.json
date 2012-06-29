@@ -15,7 +15,7 @@
         }
     ],
     "require":      {
-        "avalanche123/imagine-bundle": "dev-master",
+        "avalanche123/imagine-bundle": "dev-master"
     },
     "autoload":     {
         "psr-0": { "Evercode\\Bundle\\BannerBundle": "" }
