@@ -15,9 +15,7 @@
         }
     ],
     "require":      {
-        "symfony/symfony": ">=2.0",
         "avalanche123/imagine-bundle": "dev-master",
-        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
     },
     "autoload":     {
         "psr-0": { "Evercode\\Bundle\\BannerBundle": "" }
