@@ -1,0 +1,26 @@
+{
+    "name":         "evercodelab/banner-bundle",
+    "description":  "Symfony2 bundle for managing site banners",
+    "keywords":     ["banner"],
+    "type":         "symfony-bundle",
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name":     "EvercodeLab",
+            "homepage": "http://www.evercodelab.com/"
+        },
+        {
+            "name":     "Roman Lapin",
+            "email":    "roman.lapin@gmail.com"
+        }
+    ],
+    "require":      {
+        "symfony/symfony": ">=2.0",
+        "avalanche123/imagine-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
+    },
+    "autoload":     {
+        "psr-0": { "Evercode\\Bundle\\BannerBundle": "" }
+    },
+    "target-dir": "Evercode/Bundle/BannerBundle"
+}
