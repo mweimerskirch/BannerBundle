@@ -12,7 +12,7 @@ class BannerController extends Controller
     /**
      * @Template()
      */
-    public function indexAction($place)
+    public function topAction($place)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $entity = $em->getRepository('EvercodeBannerBundle:Banner')->findOneRandom($place);
