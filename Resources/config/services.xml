@@ -7,7 +7,6 @@
     <parameters>
         <parameter key="evercode_banner.admin.banner.class">Evercode\Bundle\BannerBundle\Admin\BannerAdmin</parameter>
         <parameter key="evercode_banner.admin.banner.entity">Evercode\Bundle\BannerBundle\Entity\Banner</parameter>
-        <parameter key="evercode_banner.admin.banner.controller">EvercodeBannerBundle:BannerAdmin</parameter>
     </parameters>
 
     <services>
@@ -15,7 +14,7 @@
             <tag name="sonata.admin" manager_type="orm" group="Реклама" label="Баннеры"/>
             <argument />
             <argument>%evercode_banner.admin.banner.entity%</argument>
-            <argument>%evercode_banner.admin.banner.controller%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
         </service>
     </services>
 </container>
