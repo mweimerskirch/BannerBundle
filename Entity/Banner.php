@@ -245,4 +245,46 @@ class Banner
         return $this->link;
     }
 
+    /**
+     * Set start_date
+     *
+     * @param \DateTime $start_date
+     */
+    public function setStartDate($start_date)
+    {
+        $this->start_date = $start_date;
+        return $this;
+    }
+
+    /**
+     * Get start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->start_date;
+    }
+
+    /**
+     * Set end_date
+     *
+     * @param \DateTime $end_date
+     */
+    public function setEndDate($end_date)
+    {
+        $this->end_date = $end_date;
+        return $this;
+    }
+
+    /**
+     * Get end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->end_date;
+    }
+
 }
