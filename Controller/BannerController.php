@@ -12,26 +12,13 @@ class BannerController extends Controller
     /**
      * @Template()
      */
-    public function topAction($place)
+    public function viewAction($place)
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('EvercodeBannerBundle:Banner')->findOneRandom($place);
+        $banner = $em->getRepository('EvercodeBannerBundle:Banner')->findOneRandom($place);
 
         return array(
-            'entity' => $entity,
-        );
-    }
-
-    /**
-     * @Template()
-     */
-    public function sidebarAction($place)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('EvercodeBannerBundle:Banner')->findOneRandom($place);
-
-        return array(
-            'entity' => $entity,
+            'banner' => $banner,
         );
     }
 

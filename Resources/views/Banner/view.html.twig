@@ -1,0 +1,5 @@
+{% if banner %}
+<div class="top-banner">
+    <a href="{{ banner.link }}"><img src="{{ banner.webPath | apply_filter('banner_main_horizontal') }}" alt="banner" /></a>
+</div>
+{% endif %}
