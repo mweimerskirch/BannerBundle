@@ -46,6 +46,7 @@ class BannerAdmin extends Admin
             ->add('link')
             ->add('start_date')
             ->add('end_date')
+            ->add('stats', null, array('template' => 'EvercodeBannerBundle:Banner:stats_partial.html.twig'))
         ;
     }
 

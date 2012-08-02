@@ -50,4 +50,19 @@ class BannerController extends Controller
         return new RedirectResponse($banner->getLink());
     }
 
+    /**
+     * @Template()
+     */
+    public function statsAction($id)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $query = $em
+                ->createQuery('SELECT l.views, l.clicks FROM EvercodeBannerBundle:BannerLog l WHERE l.banner=:banner GROUP BY l.banner')
+                ->setParameter('banner', $id);
+        $stats = $query->getSingleResult();
+
+        return array('stats' => $stats);
+    }
+
 }
