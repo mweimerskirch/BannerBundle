@@ -5,9 +5,9 @@
     {% else %}
         <a href="{{ path("banner_redirect", {"id": banner.id}) }}" target="_blank">
             {% if filter %}
-                <img src="{{ banner.webPath }}" alt="" />
-            {% else %}
                 <img src="{{ banner.webPath | apply_filter(filter) }}" alt="" />
+            {% else %}
+                <img src="{{ banner.webPath }}" alt="" />
             {% endif %}
         </a>
     {% endif %}
