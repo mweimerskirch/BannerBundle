@@ -66,6 +66,13 @@ class Banner
      */
     private $end_date;
 
+    /**
+     * @var string $html
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $html;
+
     public function __toString()
     {
         return $this->getPlace();
@@ -285,6 +292,27 @@ class Banner
     public function getEndDate()
     {
         return $this->end_date;
+    }
+
+    /**
+     * Set html
+     *
+     * @param string $html
+     */
+    public function setHtml($html)
+    {
+        $this->html = $html;
+        return $this;
+    }
+
+    /**
+     * Get html
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return $this->html;
     }
 
 }

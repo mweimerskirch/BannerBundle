@@ -23,6 +23,7 @@ class BannerAdmin extends Admin
             ->add('image')
             ->add('start_date')
             ->add('end_date')
+            ->add('html')
         ;
     }
 
@@ -36,6 +37,7 @@ class BannerAdmin extends Admin
             ->add('file', 'file', array('required' => false))
             ->add('start_date')
             ->add('end_date')
+            ->add('html')
         ;
     }
 
@@ -61,6 +63,7 @@ class BannerAdmin extends Admin
             ->add('link')
             ->add('start_date')
             ->add('end_date')
+            ->add('html')
         ;
     }
 

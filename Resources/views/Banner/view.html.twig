@@ -1,5 +1,9 @@
 {% if banner %}
 <div class="top-banner">
-    <a href="{{ path("banner_redirect", {"id": banner.id}) }}"><img src="{{ banner.webPath | apply_filter('banner_main_horizontal') }}" alt="banner" /></a>
+    {% if banner.html %}
+        {{ banner.html|raw }}
+    {% else %}
+        <a href="{{ path("banner_redirect", {"id": banner.id}) }}"><img src="{{ banner.webPath | apply_filter('banner_main_horizontal') }}" alt="banner" /></a>
+    {% endif %}
 </div>
 {% endif %}
