@@ -22,14 +22,14 @@ class BannerRepository extends EntityRepository
             ->andWhere('b.end_date >= :now OR b.end_date IS NULL')
             ->setParameter('place', $place)
             ->setParameter('now', $now)
-            ;
+        ;
 
         $result = $qb->getQuery()->execute();
 
-        if(count($result) > 1) {
+        if ( count($result) > 1 ) {
             $entities = array();
 
-            foreach ($result as $item) {
+            foreach ( $result as $item ) {
                 $entities[] = $item;
             }
 
@@ -40,4 +40,5 @@ class BannerRepository extends EntityRepository
 
         return $entity;
     }
+
 }

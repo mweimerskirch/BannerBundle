@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Banner
 {
+
     /**
      * @var integer $id
      *
@@ -78,17 +79,17 @@ class Banner
 
     public function getAbsolutePath()
     {
-        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
+        return null === $this->image ? null : $this->getUploadRootDir() . '/' . $this->image;
     }
 
     public function getWebPath()
     {
-        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
+        return null === $this->image ? null : $this->getUploadDir() . '/' . $this->image;
     }
 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
@@ -103,9 +104,9 @@ class Banner
      */
     public function preUpload()
     {
-        if (null !== $this->file) {
+        if ( null !== $this->file ) {
             // do whatever you want to generate a unique name
-            $this->image = uniqid().'.'.$this->file->guessExtension();
+            $this->image = uniqid() . '.' . $this->file->guessExtension();
         }
     }
 
@@ -115,7 +116,7 @@ class Banner
      */
     public function upload()
     {
-        if (null === $this->file) {
+        if ( null === $this->file ) {
             return;
         }
 
@@ -132,10 +133,10 @@ class Banner
      */
     public function removeUpload()
     {
-        if (! $file = $this->getAbsolutePath()) {
+        if ( !$file = $this->getAbsolutePath() ) {
             return;
         }
-        if (is_file($file)) {
+        if ( is_file($file) ) {
             unlink($file);
         }
     }

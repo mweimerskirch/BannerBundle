@@ -34,4 +34,5 @@ class BannerController extends Controller
             'entity' => $entity,
         );
     }
+
 }

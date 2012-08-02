@@ -1,4 +1,5 @@
 <?php
+
 namespace Evercode\Bundle\BannerBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -10,6 +11,7 @@ use Evercode\Bundle\BannerBundle\Form\Extension\ChoiceList\BannerPlace;
 
 class BannerAdmin extends Admin
 {
+
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
@@ -49,10 +51,9 @@ class BannerAdmin extends Admin
     public function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('place', null, array(), 'sonata_type_translatable_choice',
-                array(
-                    'choice_list' => new BannerPlace()
-                )
+            ->add('place', null, array(), 'sonata_type_translatable_choice', array(
+                'choice_list' => new BannerPlace()
+                    )
             )
             ->add('link')
             ->add('start_date')
