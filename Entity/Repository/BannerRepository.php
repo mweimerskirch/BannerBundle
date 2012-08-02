@@ -11,12 +11,17 @@ class BannerRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
 
+        $now = new \DateTime();
+
         $qb = $em->createQueryBuilder();
         $qb
             ->select('b')
             ->from('EvercodeBannerBundle:Banner', 'b')
             ->where('b.place = :place')
+            ->andWhere('b.start_date <= :now OR b.start_date IS NULL')
+            ->andWhere('b.end_date >= :now OR b.end_date IS NULL')
             ->setParameter('place', $place)
+            ->setParameter('now', $now)
             ;
 
         $result = $qb->getQuery()->execute();

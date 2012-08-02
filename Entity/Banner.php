@@ -50,9 +50,29 @@ class Banner
      */
     private $file;
 
+    /**
+     * @var \DateTime $start_date
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $start_date;
+
+    /**
+     * @var \DateTime $end_date
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $end_date;
+
     public function __toString()
     {
         return $this->getPlace();
+    }
+
+    function __construct()
+    {
+        $this->start_date = new \DateTime();
+        $this->end_date = new \DateTime('tomorrow 23:59:00');
     }
 
     public function getAbsolutePath()

@@ -17,6 +17,8 @@ class BannerAdmin extends Admin
             ->add('place')
             ->add('link')
             ->add('image')
+            ->add('start_date')
+            ->add('end_date')
         ;
     }
 
@@ -28,6 +30,8 @@ class BannerAdmin extends Admin
             ))
             ->add('link')
             ->add('file', 'file', array('required' => false))
+            ->add('start_date')
+            ->add('end_date')
         ;
     }
 
@@ -37,6 +41,8 @@ class BannerAdmin extends Admin
             ->addIdentifier('id')
             ->addIdentifier('place')
             ->add('link')
+            ->add('start_date')
+            ->add('end_date')
         ;
     }
 
@@ -49,6 +55,8 @@ class BannerAdmin extends Admin
                 )
             )
             ->add('link')
+            ->add('start_date')
+            ->add('end_date')
         ;
     }
 
