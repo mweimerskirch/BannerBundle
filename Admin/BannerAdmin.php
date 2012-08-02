@@ -11,6 +11,7 @@ use Evercode\Bundle\BannerBundle\Form\Extension\ChoiceList\BannerPlace;
 
 class BannerAdmin extends Admin
 {
+    protected $translationDomain = 'SonataAdminBundle';
 
     public function configureShowFields(ShowMapper $showMapper)
     {
