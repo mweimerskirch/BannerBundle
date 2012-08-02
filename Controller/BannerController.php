@@ -22,4 +22,15 @@ class BannerController extends Controller
         );
     }
 
+    /**
+     * @Route("/banner/redirect/{id}", name="banner_redirect")
+     */
+    public function clickAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $banner = $em->getRepository('EvercodeBannerBundle:Banner')->find($id);
+
+        return new RedirectResponse($banner->getLink());
+    }
+
 }
