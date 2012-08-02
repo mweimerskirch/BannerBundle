@@ -137,6 +137,7 @@ class Banner
     public function setPlace($place)
     {
         $this->place = $place;
+        return $this;
     }
 
     /**
@@ -157,6 +158,7 @@ class Banner
     public function setImage($image)
     {
         $this->image = $image;
+        return $this;
     }
 
     /**
@@ -169,19 +171,29 @@ class Banner
         return $this->image;
     }
 
+    /**
+     * Set file
+     *
+     * @param string $file
+     */
     public function setFile($file)
     {
-        if (! empty($file)) {
+        if ( !empty($file) ) {
             $this->image = 'changed';
         }
         $this->file = $file;
+        return $this;
     }
 
+    /**
+     * Get file
+     *
+     * @return string
+     */
     public function getFile()
     {
         return $this->file;
     }
-
 
     /**
      * Set link
@@ -191,6 +203,7 @@ class Banner
     public function setLink($link)
     {
         $this->link = $link;
+        return $this;
     }
 
     /**
