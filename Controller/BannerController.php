@@ -14,7 +14,7 @@ class BannerController extends Controller
     /**
      * @Template()
      */
-    public function viewAction($place)
+    public function viewAction($place, $filter = null)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $banner = $em->getRepository('EvercodeBannerBundle:Banner')->findOneRandom($place);
@@ -31,6 +31,7 @@ class BannerController extends Controller
 
         return array(
             'banner' => $banner,
+            'filter' => $filter,
         );
     }
 

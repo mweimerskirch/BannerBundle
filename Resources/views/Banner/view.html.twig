@@ -3,7 +3,13 @@
     {% if banner.html %}
         {{ banner.html|raw }}
     {% else %}
-        <a href="{{ path("banner_redirect", {"id": banner.id}) }}" target="_blank"><img src="{{ banner.webPath | apply_filter('banner_main_horizontal') }}" alt="" /></a>
+        <a href="{{ path("banner_redirect", {"id": banner.id}) }}" target="_blank">
+            {% if filter %}
+                <img src="{{ banner.webPath }}" alt="" />
+            {% else %}
+                <img src="{{ banner.webPath | apply_filter(filter) }}" alt="" />
+            {% endif %}
+        </a>
     {% endif %}
 </div>
 {% endif %}
