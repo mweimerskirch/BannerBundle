@@ -111,7 +111,7 @@ class Banner
      */
     public function preUpload()
     {
-        if ( null !== $this->file ) {
+        if (null !== $this->file) {
             // do whatever you want to generate a unique name
             $this->image = uniqid() . '.' . $this->file->guessExtension();
         }
@@ -123,7 +123,7 @@ class Banner
      */
     public function upload()
     {
-        if ( null === $this->file ) {
+        if (null === $this->file) {
             return;
         }
 
@@ -140,10 +140,10 @@ class Banner
      */
     public function removeUpload()
     {
-        if ( !$file = $this->getAbsolutePath() ) {
+        if (!$file = $this->getAbsolutePath()) {
             return;
         }
-        if ( is_file($file) ) {
+        if (is_file($file)) {
             unlink($file);
         }
     }
@@ -214,7 +214,7 @@ class Banner
      */
     public function setFile($file)
     {
-        if ( !empty($file) ) {
+        if (!empty($file)) {
             $this->image = 'changed';
         }
         $this->file = $file;

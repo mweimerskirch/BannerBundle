@@ -23,7 +23,7 @@ class BannerController extends Controller
                 ->createQuery('UPDATE EvercodeBannerBundle:BannerLog l SET l.views = l.views+1 WHERE l.banner=:banner')
                 ->setParameter('banner', $banner->getId());
 
-        if ( !$query->execute() ) {
+        if (!$query->execute()) {
             $log = new BannerLog($banner);
             $em->persist($log);
             $em->flush();
