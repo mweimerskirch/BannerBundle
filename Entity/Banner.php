@@ -89,7 +89,7 @@ class Banner
 
     protected function getUploadRootDir()
     {
-        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+        return $_SERVER['DOCUMENT_ROOT'] . '/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
