@@ -7,7 +7,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Evercode\Bundle\BannerBundle\Form\Extension\ChoiceList\BannerPlace;
+use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList;
+use Evercode\Bundle\BannerBundle\Entity\Banner;
 
 class BannerAdmin extends Admin
 {
@@ -29,7 +30,7 @@ class BannerAdmin extends Admin
     {
         $formMapper
             ->add('place', 'sonata_type_translatable_choice', array(
-                'choice_list' => new BannerPlace()
+                'choice_list' => new SimpleChoiceList(Banner::getPlacesList()),
             ))
             ->add('link')
             ->add('file', 'file', array('required' => false))
@@ -54,7 +55,7 @@ class BannerAdmin extends Admin
     {
         $datagridMapper
             ->add('place', null, array(), 'sonata_type_translatable_choice', array(
-                'choice_list' => new BannerPlace()
+                'choice_list' => new SimpleChoiceList(Banner::getPlacesList()),
                     )
             )
             ->add('link')

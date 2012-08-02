@@ -141,6 +141,13 @@ class Banner
         }
     }
 
+    public static function getPlacesList()
+    {
+        return array(
+            'Main_horizontal' => 'Main_horizontal'
+        );
+    }
+
     /**
      * Get id
      *
