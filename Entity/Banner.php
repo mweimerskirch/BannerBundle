@@ -42,11 +42,12 @@ class Banner
      * @var string $link
      *
      * @ORM\Column(name="link", type="string", length=255)
+     * @Assert\Url()
      */
     private $link;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\Image(maxSize="6000000")
      */
     private $file;
 
