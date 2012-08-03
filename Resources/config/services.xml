@@ -11,7 +11,7 @@
 
     <services>
         <service id="evercode_banner.admin.banner" class="%evercode_banner.admin.banner.class%">
-            <tag name="sonata.admin" manager_type="orm" group="Реклама" label="Баннеры"/>
+            <tag name="sonata.admin" manager_type="orm" group="Advertising" label="Banners"/>
             <argument />
             <argument>%evercode_banner.admin.banner.entity%</argument>
             <argument>SonataAdminBundle:CRUD</argument>

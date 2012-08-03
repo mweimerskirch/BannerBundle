@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Banner
 {
+
     /**
      * @var integer $id
      *
@@ -34,40 +35,68 @@ class Banner
     /**
      * @var string $image
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
     /**
      * @var string $link
      *
-     * @ORM\Column(name="link", type="string", length=255)
+     * @ORM\Column(name="link", type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $link;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\Image(maxSize="6000000")
      */
     private $file;
+
+    /**
+     * @var \DateTime $start_date
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $start_date;
+
+    /**
+     * @var \DateTime $end_date
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $end_date;
+
+    /**
+     * @var string $html
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $html;
 
     public function __toString()
     {
         return $this->getPlace();
     }
 
+    function __construct()
+    {
+        $this->start_date = new \DateTime();
+        $this->end_date = new \DateTime('tomorrow 23:59:00');
+    }
+
     public function getAbsolutePath()
     {
-        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
+        return null === $this->image ? null : $this->getUploadRootDir() . '/' . $this->image;
     }
 
     public function getWebPath()
     {
-        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
+        return null === $this->image ? null : $this->getUploadDir() . '/' . $this->image;
     }
 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return $_SERVER['DOCUMENT_ROOT'] . '/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
@@ -84,7 +113,7 @@ class Banner
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
-            $this->image = uniqid().'.'.$this->file->guessExtension();
+            $this->image = uniqid() . '.' . $this->file->guessExtension();
         }
     }
 
@@ -111,12 +140,19 @@ class Banner
      */
     public function removeUpload()
     {
-        if (! $file = $this->getAbsolutePath()) {
+        if (!$file = $this->getAbsolutePath()) {
             return;
         }
         if (is_file($file)) {
             unlink($file);
         }
+    }
+
+    public static function getPlacesList()
+    {
+        return array(
+            'Main_horizontal' => 'Main_horizontal'
+        );
     }
 
     /**
@@ -137,6 +173,7 @@ class Banner
     public function setPlace($place)
     {
         $this->place = $place;
+        return $this;
     }
 
     /**
@@ -157,6 +194,7 @@ class Banner
     public function setImage($image)
     {
         $this->image = $image;
+        return $this;
     }
 
     /**
@@ -169,19 +207,29 @@ class Banner
         return $this->image;
     }
 
+    /**
+     * Set file
+     *
+     * @param string $file
+     */
     public function setFile($file)
     {
-        if (! empty($file)) {
+        if (!empty($file)) {
             $this->image = 'changed';
         }
         $this->file = $file;
+        return $this;
     }
 
+    /**
+     * Get file
+     *
+     * @return string
+     */
     public function getFile()
     {
         return $this->file;
     }
-
 
     /**
      * Set link
@@ -191,6 +239,7 @@ class Banner
     public function setLink($link)
     {
         $this->link = $link;
+        return $this;
     }
 
     /**
@@ -201,6 +250,69 @@ class Banner
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set start_date
+     *
+     * @param \DateTime $start_date
+     */
+    public function setStartDate($start_date)
+    {
+        $this->start_date = $start_date;
+        return $this;
+    }
+
+    /**
+     * Get start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->start_date;
+    }
+
+    /**
+     * Set end_date
+     *
+     * @param \DateTime $end_date
+     */
+    public function setEndDate($end_date)
+    {
+        $this->end_date = $end_date;
+        return $this;
+    }
+
+    /**
+     * Get end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->end_date;
+    }
+
+    /**
+     * Set html
+     *
+     * @param string $html
+     */
+    public function setHtml($html)
+    {
+        $this->html = $html;
+        return $this;
+    }
+
+    /**
+     * Get html
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return $this->html;
     }
 
 }

@@ -1,0 +1,15 @@
+{% if banner %}
+<div class="top-banner">
+    {% if banner.html %}
+        {{ banner.html|raw }}
+    {% else %}
+        <a href="{{ path("banner_redirect", {"id": banner.id}) }}" target="_blank">
+            {% if filter %}
+                <img src="{{ banner.webPath | apply_filter(filter) }}" alt="" />
+            {% else %}
+                <img src="{{ banner.webPath }}" alt="" />
+            {% endif %}
+        </a>
+    {% endif %}
+</div>
+{% endif %}
