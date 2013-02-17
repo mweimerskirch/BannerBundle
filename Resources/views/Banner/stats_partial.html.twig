@@ -1,1 +1,1 @@
-<td>{% render 'EvercodeBannerBundle:Banner:stats' with {'id': object.id} %}</td>
+<td>{{ render(controller('EvercodeBannerBundle:Banner:stats', {'id': object.id})) }}</td>
